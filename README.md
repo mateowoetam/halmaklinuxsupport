@@ -2,7 +2,13 @@
 
 ## Key Mapping Note
 
-This version of the Halmak keyboard layout uses `<` and `>` with `,` and `.` respectively, instead of the traditional mappings for `(` and `)` or other setups.
+Given a personal preference, this version of the Halmak keyboard layout uses `<` and `>` with `,` and `.` respectively, instead of the traditional mappings for `(` and `)` or other setups. (I should probably work on adding either as an options in the script)
+
+## Script Details:
+the script will detect whether your system is immutable (e.g. Bazzite) and/or declarative (e.g. NixOS) or not, and it will tell you. Currently immutable and declarative distros are not supported because my limited habilities. (working on adding VanillaOS support ATM)
+
+## Additional Packages
+I have included OSX keyboard bundle files alongside the Linux files if you also want to install it on a Mac (though take into account that this version has `(` and `)` with `,` and `.` respectively, like traditionally.
 
 ## Installation Instructions
 

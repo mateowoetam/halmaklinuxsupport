@@ -102,9 +102,8 @@ package_manager=$(detect_package_manager)
 
 if [[ "$system" == "vanilla2" ]]; then
     echo "You are running VanillaOS 2 Orchid."
-    sudo abroot shell
-    mount_directories
-    copy_files
+    echo "Your distro is not yet supported by this script."
+    exit 1
 elif [[ "$system" == "vanilla22.10" ]]; then
     echo "You are running VanillaOS 22.10 Kinetic."
     sudo abroot shell

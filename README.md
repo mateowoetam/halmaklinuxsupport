@@ -2,7 +2,9 @@
 
 ## Key Mapping Note
 
-Given a personal preference, this version of the Halmak keyboard layout uses `<` and `>` with `,` and `.` respectively, instead of the traditional mappings for `(` and `)` or other setups. (I should probably work on adding either as an options in the script)
+Given a personal preference, this version of the Halmak keyboard layout uses `<` and `>` with `,` and `.` respectively, instead of the traditional mappings for `(` and `)` or other setups. Another note is that the CapsLock has been replaced by a secondary Backspace, given the original Halmak design philosophy and realizaiton that no one uses it. (I should probably work on adding either as an options in the script)
+
+![keyboard-layout](https://github.com/user-attachments/assets/c3442835-49e3-4f10-b180-ca0feb915fe7)
 
 ## Script Details:
 the script will detect whether your system is immutable (e.g. Bazzite) and/or declarative (e.g. NixOS) or not, and it will tell you. Currently immutable and declarative distros are not supported because my limited habilities. (working on adding VanillaOS support ATM)

@@ -4,6 +4,8 @@
 partial alphanumeric_keys
 xkb_symbols "basic" {
 
+    name[Group1]="English (Halmak)";
+
     key <TLDE> { [        grave,   asciitilde,      dead_tilde,       asciitilde ] };
     key <AE01> { [            1,       exclam,      exclamdown,      onesuperior ] };
     key <AE02> { [            2,           at,       masculine,      twosuperior ] };

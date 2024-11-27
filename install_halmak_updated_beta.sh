@@ -121,8 +121,7 @@ elif [[ "$package_manager" == "rpm-ostree" ]]; then
 elif [[ "$package_manager" == "nixos" ]]; then
     echo "Your distro is immutable or declarative. This script does not support it."
 elif [[ "$package_manager" == "apt-get" || "$package_manager" == "apt" || "$package_manager" == "alpine" || "$package_manager" == "yum" || "$package_manager" == "dnf" || "$package_manager" == "zypper" || "$package_manager" == "pacman" || "$package_manager" == "paru" || "$package_manager" == "yay" || "$package_manager" == "emerge" || "$package_manager" == "guix" ]]; then
-    echo "You are running VanillaOS 22.10 Kinetic."
-
+    echo "You are running a supported distro, the files will be copied."
     copy_files
 else
     if [[ "$package_manager" == "unknown" ]]; then

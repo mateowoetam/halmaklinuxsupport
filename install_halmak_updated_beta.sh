@@ -109,9 +109,17 @@ elif [[ "$system" == "vanilla22.10" ]]; then
     sudo abroot shell
     mount_directories
     copy_files
-elif [[ "$package_manager" == "rpm-ostree" || "$package_manager" == "nixos" ]]; then
-    echo "Your distro is immutable or declarative. This script does not support it."
+elif [[ "$package_manager" == "rpm-ostree" ]]; then
+    echo "Your distro is in experimental support; we cannot guarantee it works."
+    CONFIG_DIR="/home/$USER/.config/xkb"
+    mkdir -p "$CONFIG_DIR/symbols" "$CONFIG_DIR/rules"
+    cp "$HALMAK_DIR/symbols/halmak" "$CONFIG_DIR/symbols/"
+    cp "$HALMAK_DIR/rules/evdev" "$CONFIG_DIR/rules/"
+    cp "$HALMAK_DIR/rules/evdev.xml" "$CONFIG_DIR/rules/"
+    echo "Files have been copied to your home directory under .config/xkb."
     exit 1
+elif [[ "$package_manager" == "nixos" ]]; then
+    echo "Your distro is immutable or declarative. This script does not support it."
 elif [[ "$package_manager" == "apt-get" || "$package_manager" == "apt" || "$package_manager" == "alpine" || "$package_manager" == "yum" || "$package_manager" == "dnf" || "$package_manager" == "zypper" || "$package_manager" == "pacman" || "$package_manager" == "paru" || "$package_manager" == "yay" || "$package_manager" == "emerge" || "$package_manager" == "guix" ]]; then
     echo "You are running VanillaOS 22.10 Kinetic."
 

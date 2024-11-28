@@ -100,23 +100,19 @@ copy_files() {
 system=$(detect_system)
 package_manager=$(detect_package_manager)
 
-if [[ "$system" == "vanilla2" ]]; then
-    echo "You are running VanillaOS 2 Orchid."
-    echo "Your distro is not yet supported by this script."
-    exit 1
-elif [[ "$system" == "vanilla22.10" ]]; then
+if [[ "$system" == "vanilla22.10" ]]; then
     echo "You are running VanillaOS 22.10 Kinetic."
     sudo abroot shell
     mount_directories
     copy_files
-elif [[ "$package_manager" == "rpm-ostree" ]]; then
+elif [[ "$package_manager" == "rpm-ostree" || "$system" == "vanilla2" ]]; then
     echo "Your distro is in experimental support; we cannot guarantee it works."
     CONFIG_DIR="/home/$USER/.config/xkb"
     mkdir -p "$CONFIG_DIR/symbols" "$CONFIG_DIR/rules"
     cp "$HALMAK_DIR/symbols/halmak" "$CONFIG_DIR/symbols/"
     cp "$HALMAK_DIR/rules/evdev" "$CONFIG_DIR/rules/"
     cp "$HALMAK_DIR/rules/evdev.xml" "$CONFIG_DIR/rules/"
-    echo "Files have been copied to your home directory under .config/xkb."
+    echo "Files have been copied to your home directory under .config/xkb. Please reboot your device to see the changes applied."
     exit 1
 elif [[ "$package_manager" == "nixos" ]]; then
     echo "Your distro is immutable or declarative. This script does not support it."

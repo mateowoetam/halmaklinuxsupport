@@ -12,35 +12,39 @@ copy_files() {
     local src_rules="$HALMAK_DIR/zz"
     local dest_symbols="$1"
     local dest_rules="$2"
-
+    
     mkdir -p "$(dirname "$dest_symbols")" "$(dirname "$dest_rules")"
-
+    
     if ! cp "$src_symbols" "$dest_symbols" || ! cp "$src_rules" "$dest_rules"; then
         echo "Failed to copy files to $dest_symbols and $dest_rules."
         exit 1
     fi
 }
 
-# Check for root privileges
-if [[ $EUID -ne 0 ]]; then
-    echo "This script must be run as root. Use root privileges to run it."
-    exit 1
-fi
-
 # Detect OS and handle logic
 if [[ -f /etc/os-release ]]; then
     . /etc/os-release
 
+    # Handle immutable Fedora variants first
+    if [[ "$ID" == "fedora" ]] && [[ "$VARIANT" =~ Kinonite|Silverblue|immutable ]]; then
+        echo "Immutable Fedora variant detected (e.g., $VARIANT)."
+        copy_files "$IMUTABLE_SYMBOLS_DIR/evdev.xml" "$IMUTABLE_RULES_DIR/zz"
+        echo "Installation complete for immutable Fedora variant."
+        echo -e "After restarting, go to System Settings -> Region & Language.\nClick '+', click 'English (United States)', scroll and click 'Halmak', then click the 'Add' green button."
+        exit 0
+    fi
+
+    # Check for root privileges for other cases
+    if [[ $EUID -ne 0 ]]; then
+        echo "This script must be run as root. Use root privileges to run it."
+        exit 1
+    fi
+
+    # Handle other distributions
     case "$ID" in
         fedora)
-            echo "Fedora detected."
-            if [[ "$VARIANT" =~ Kinoite|Silverblue ]]; then
-                echo "Immutable variant detected."
-                copy_files "$IMUTABLE_SYMBOLS_DIR/evdev.xml" "$IMUTABLE_RULES_DIR/zz"
-            else
-                echo "Standard Fedora variant detected."
-                copy_files "$SYMBOLS_DIR/evdev.xml" "$RULES_DIR/zz"
-            fi
+            echo "Standard Fedora detected."
+            copy_files "$SYMBOLS_DIR/evdev.xml" "$RULES_DIR/zz"
             ;;
         "vanilla")
             echo "Vanilla OS detected."
@@ -88,4 +92,4 @@ fi
 
 # Success message
 echo "Installation complete. Please restart your computer to apply changes."
-echo -e "After restarting, go to System Settings -> Region & Language.\nClick '+', click 'English (United States)'.\nscroll and click 'Halmak'.\nthen click the 'Add' green button."
+echo -e "After restarting, go to System Settings -> Region & Language.\nClick '+', click 'English (United States)', scroll and click 'Halmak', then click the 'Add' green button."

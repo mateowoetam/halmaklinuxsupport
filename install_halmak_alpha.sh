@@ -34,7 +34,7 @@ if [[ -f /etc/os-release ]]; then
     case "$ID" in
         fedora)
             echo "Fedora detected."
-            if [[ "$VARIANT" =~ Kinonite|Silverblue ]]; then
+            if [[ "$VARIANT" =~ Kinoite|Silverblue ]]; then
                 echo "Immutable variant detected."
                 copy_files "$IMUTABLE_SYMBOLS_DIR/evdev.xml" "$IMUTABLE_RULES_DIR/zz"
             else

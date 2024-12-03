@@ -8,15 +8,15 @@ IMUTABLE_RULES_DIR="/home/$USER/.config/xkb/rules"
 
 # Function to copy files and handle errors
 copy_files() {
-    local src_symbols="$HALMAK_DIR/evdev.xml"
-    local src_rules="$HALMAK_DIR/zz"
-    local dest_symbols="$1"
-    local dest_rules="$2"
+    local src_symbol="$HALMAK_DIR/zz"  # Corrected source for symbols
+    local src_rule="$HALMAK_DIR/evdev.xml"  # Corrected source for rules
+    local dest_symbol="$1"
+    local dest_rule="$2"
     
-    mkdir -p "$(dirname "$dest_symbols")" "$(dirname "$dest_rules")"
+    mkdir -p "$(dirname "$dest_symbol")" "$(dirname "$dest_rule")"
     
-    if ! cp "$src_symbols" "$dest_symbols" || ! cp "$src_rules" "$dest_rules"; then
-        echo "Failed to copy files to $dest_symbols and $dest_rules."
+    if ! cp "$src_symbol" "$dest_symbol" || ! cp "$src_rule" "$dest_rule"; then
+        echo "Failed to copy files to $dest_symbol and $dest_rule."
         exit 1
     fi
 }
@@ -28,7 +28,7 @@ if [ -f /etc/os-release ]; then
     # Handle immutable Fedora variants first
     if [ "$ID" = "fedora" ] && echo "$VARIANT" | grep -qE "Kinonite|Silverblue|immutable"; then
         echo "Immutable Fedora variant detected (e.g., $VARIANT)."
-        copy_files "$IMUTABLE_SYMBOLS_DIR/evdev.xml" "$IMUTABLE_RULES_DIR/zz"
+        copy_files "$IMUTABLE_SYMBOLS_DIR/zz" "$IMUTABLE_RULES_DIR/evdev.xml"
         echo "Installation complete for immutable Fedora variant."
         echo "After restarting, go to System Settings -> Region & Language."
         echo "Click '+', click 'English (United States)', scroll and click 'Halmak', then click the 'Add' green button."
@@ -45,7 +45,7 @@ if [ -f /etc/os-release ]; then
     case "$ID" in
         fedora)
             echo "Standard Fedora detected."
-            copy_files "$SYMBOLS_DIR/evdev.xml" "$RULES_DIR/zz"
+            copy_files "$SYMBOLS_DIR/zz" "$RULES_DIR/evdev.xml"
             ;;
         vanilla)
             echo "Vanilla OS detected."
@@ -61,11 +61,11 @@ mount_directories() {
 }
 mount_directories
 EOF
-                    copy_files "$SYMBOLS_DIR/evdev.xml" "$RULES_DIR/zz"
+                    copy_files "$SYMBOLS_DIR/zz" "$RULES_DIR/evdev.xml"
                     ;;
                 "2.0")
                     echo "Vanilla OS version 2.0 detected. Immutable behavior applied."
-                    copy_files "$IMUTABLE_SYMBOLS_DIR/evdev.xml" "$IMUTABLE_RULES_DIR/zz"
+                    copy_files "$IMUTABLE_SYMBOLS_DIR/zz" "$IMUTABLE_RULES_DIR/evdev.xml"
                     ;;
                 *)
                     echo "Unsupported Vanilla OS version. Exiting."
@@ -79,7 +79,7 @@ EOF
             ;;
         debian | ubuntu | arch | alpine | gentoo | nobara | pop)
             echo "You are installing Halmak on $ID."
-            copy_files "$SYMBOLS_DIR/evdev.xml" "$RULES_DIR/zz"
+            copy_files "$SYMBOLS_DIR/zz" "$RULES_DIR/evdev.xml"
             ;;
         *)
             echo "Unknown or unsupported distribution: $ID. Exiting."

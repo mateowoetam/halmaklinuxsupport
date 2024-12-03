@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 SYMBOLS_DIR="/usr/share/X11/xkb/symbols"
 RULES_DIR="/usr/share/X11/xkb/rules"
-HALMAK_DIR="$(dirname "$0")/halmak-linux"
+HALMAK_DIR="$(pwd)/halmak-linux"
 IMUTABLE_SYMBOLS_DIR="/home/$USER/.config/xkb/symbols"
 IMUTABLE_RULES_DIR="/home/$USER/.config/xkb/rules"
 
@@ -22,20 +22,21 @@ copy_files() {
 }
 
 # Detect OS and handle logic
-if [[ -f /etc/os-release ]]; then
+if [ -f /etc/os-release ]; then
     . /etc/os-release
 
     # Handle immutable Fedora variants first
-    if [[ "$ID" == "fedora" ]] && [[ "$VARIANT" =~ Kinonite|Silverblue|immutable ]]; then
+    if [ "$ID" = "fedora" ] && echo "$VARIANT" | grep -qE "Kinonite|Silverblue|immutable"; then
         echo "Immutable Fedora variant detected (e.g., $VARIANT)."
         copy_files "$IMUTABLE_SYMBOLS_DIR/evdev.xml" "$IMUTABLE_RULES_DIR/zz"
         echo "Installation complete for immutable Fedora variant."
-        echo -e "After restarting, go to System Settings -> Region & Language.\nClick '+', click 'English (United States)', scroll and click 'Halmak', then click the 'Add' green button."
+        echo "After restarting, go to System Settings -> Region & Language."
+        echo "Click '+', click 'English (United States)', scroll and click 'Halmak', then click the 'Add' green button."
         exit 0
     fi
 
     # Check for root privileges for other cases
-    if [[ $EUID -ne 0 ]]; then
+    if [ "$(id -u)" -ne 0 ]; then
         echo "This script must be run as root. Use root privileges to run it."
         exit 1
     fi
@@ -46,12 +47,12 @@ if [[ -f /etc/os-release ]]; then
             echo "Standard Fedora detected."
             copy_files "$SYMBOLS_DIR/evdev.xml" "$RULES_DIR/zz"
             ;;
-        "vanilla")
+        vanilla)
             echo "Vanilla OS detected."
             case "$VERSION_ID" in
                 "22.10")
                     echo "Vanilla OS version 22.10 detected. Entering ABroot shell."
-                    sudo abroot shell << EOF
+                    sudo abroot shell << 'EOF'
 mount_directories() {
     echo "Mounting the required directories to ABroot..."
     for dir in /home /home/$USER /usr /usr/share /usr/share/X11 /usr/share/X11/xkb /usr/share/X11/xkb/rules /usr/share/X11/xkb/symbols; do
@@ -76,7 +77,7 @@ EOF
             echo "NixOS detected. This OS is not supported by the script."
             exit 1
             ;;
-        debian | ubuntu | arch | alpine | gentoo | nobara)
+        debian | ubuntu | arch | alpine | gentoo | nobara | pop)
             echo "You are installing Halmak on $ID."
             copy_files "$SYMBOLS_DIR/evdev.xml" "$RULES_DIR/zz"
             ;;
@@ -92,4 +93,5 @@ fi
 
 # Success message
 echo "Installation complete. Please restart your computer to apply changes."
-echo -e "After restarting, go to System Settings -> Region & Language.\nClick '+', click 'English (United States)', scroll and click 'Halmak', then click the 'Add' green button."
+echo "After restarting, go to System Settings -> Region & Language."
+echo "Click '+', click 'English (United States)', scroll and click 'Halmak', then click the 'Add' green button."

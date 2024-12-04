@@ -80,7 +80,7 @@ EOF
                     exit 1
                     ;;
             esac
-            ;;s
+            ;;
         nixos | SnowflakeOS)
             echo "NixOS-based distro detected. This OS is not supported by the script."
             exit 1

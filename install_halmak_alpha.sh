@@ -85,7 +85,7 @@ EOF
             echo "NixOS-based distro detected. This OS is not supported by the script."
             exit 1
             ;;
-        debian | ubuntu | arch | alpine | gentoo | nobara | pop | centos | linuxmint | elementary | mxlinux | manjaro | cachyos | opensuse | nitrux)
+        debian | ubuntu | arch | alpine | gentoo | nobara | pop | centos | linuxmint | elementary | mxlinux | manjaro | cachyos | opensuse | nitrux | almalinux | archcraft | arcolinux | biglinux)
             echo "You are installing Halmak on $ID."
             copy_files "$SYMBOLS_DIR/zz" "$RULES_DIR/evdev.xml"
             ;;

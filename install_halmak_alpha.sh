@@ -23,16 +23,25 @@ copy_files() {
 if [ -f /etc/os-release ]; then
     . /etc/os-release
     
-    # Handle Bazzite specifically
-    if [ "$ID" = "bazzite" ]; then
-        echo "Bazzite detected."
+    # Handle Bazzite and BlendOS specifically
+    if [ "$ID" = "bazzite" ] || [ "$ID" = "blendos" ]; then
+        # Map IDs to their specific capitalized names
+        get_pretty_name() {
+            case "$1" in
+                bazzite) echo "Bazzite" ;;
+                blendos) echo "BlendOS" ;;
+                *) echo "Unknown Distribution" ;;
+            esac
+        }
+        pretty_name=$(get_pretty_name "$ID")
+        echo "$pretty_name detected."
         copy_files "$IMUTABLE_SYMBOLS_DIR/zz" "$IMUTABLE_RULES_DIR/evdev.xml"
-        echo "Installation complete for Bazzite."
+        echo "Installation complete for $pretty_name."
         echo "After restarting, go to System Settings -> Region & Language."
         echo "Click '+', click 'English (United States)', scroll and click 'Halmak', then click the 'Add' green button."
         exit 0
     fi
-    
+
     # Handle immutable Fedora variants first
     if [ "$ID" = "fedora" ] && echo "$VARIANT" | grep -qE "Kinonite|Silverblue|immutable"; then
         echo "Immutable Fedora variant detected (e.g., $VARIANT)."

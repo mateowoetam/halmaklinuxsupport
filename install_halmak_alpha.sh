@@ -43,7 +43,7 @@ if [ -f /etc/os-release ]; then
     fi
 
     # Handle immutable Fedora variants first
-    if [ "$ID" = "fedora" ] && echo "$VARIANT" | grep -qE "Kinonite|Silverblue|immutable"; then
+    if [ "$ID" = "fedora" ] && echo "$VARIANT" | grep -qE "Kinonite|Silverblue|bluefin|immutable"; then
         echo "Immutable Fedora variant detected (e.g., $VARIANT)."
         copy_files "$IMUTABLE_SYMBOLS_DIR/zz" "$IMUTABLE_RULES_DIR/evdev.xml"
         echo "Installation complete for immutable Fedora variant."

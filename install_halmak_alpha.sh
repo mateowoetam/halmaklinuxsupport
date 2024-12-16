@@ -24,13 +24,14 @@ if [ -f /etc/os-release ]; then
     . /etc/os-release
     
     # Handle Bazzite and BlendOS specifically
-    if [ "$ID" = "bazzite" ] || [ "$ID" = "blendos" ] || [ "$ID" = "bluefin" ]; then
+    if [ "$ID" = "bazzite" ] || [ "$ID" = "blendos" ] || [ "$ID" = "bluefin" ] || [ "$ID" = "aurora" ]; then
         # Map IDs to their specific capitalized names
         get_pretty_name() {
             case "$1" in
                 bazzite) echo "Bazzite" ;;
                 blendos) echo "BlendOS" ;;
                 bluefin) echo "Bluefin" ;;
+                aurora) echo "Aurora" ;;
                 *) echo "Unknown Distribution" ;;
             esac
         }

@@ -78,3 +78,11 @@ G. I used Colemak's mappings as the base when I switched the keys to Halmak's la
 H. For learning a layout, I find it helpful on a second screen (or smartphone) to pull up the layout to look at while typing and memorizing on some kind of typing test like [typeracer.com](https://typeracer.com).
 
 I. If you'd like to try to create a custom layout of your own, you just need to go to the `zz` file for instance and switch around the values of the keys. I don't know what all the codes are for the keys, but you can get some ideas by finding other codes in the files in the `/usr/share/X11/xkb/symbols/` folder.
+
+## Special Thanks and Recognitions:
+
+To [kaievins](https://github.com/kaievns) for creating the [halmak](https://github.com/kaievns/halmak) keybard layout, and the OSX files.
+
+To [pguerin](https://github.com/pguerin3) for creating [halmak4windows]{https://github.com/pguerin3/halmak4windows}
+
+To random redditors for giving me clues on how to make the script better.

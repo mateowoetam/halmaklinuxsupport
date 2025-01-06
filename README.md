@@ -1,13 +1,29 @@
 # Halmak Keyboard Layout for Linux
 
 ## Key Mapping Note
-
 Given a personal preference, this version of the Halmak keyboard layout uses `<` and `>` with `,` and `.` respectively, instead of the traditional mappings for `(` and `)` or other setups. Another note is that the CapsLock has been replaced by a secondary Backspace, given the original Halmak design philosophy and realizaiton that no one uses it. (I should probably work on adding either as an options in the script)
 
 ![keyboard-layout](https://github.com/user-attachments/assets/c3442835-49e3-4f10-b180-ca0feb915fe7)
 
 ## Script Details:
-the script will detect whether your system is immutable (e.g. Bazzite) and/or declarative (e.g. NixOS) or not, and it will tell you. Currently immutable and declarative distros are not supported because my limited habilities. (working on adding VanillaOS support ATM)
+The lastest version of the script will install the required fires for the layout in a newly created directory under /home/.config/xkb.
+there are different versions of the script in the repo that use different methods:
+```
+halmak-linux/
+├── contains the files used by the default linux_halmak.sh installer script.
+halmak-mutable/
+├── contains a script that installs the keyboard layout by editing the '/usr/share/X11/xkb/' directory.
+halmak-immutable/
+├── contains a script that detects a select set of immutable and mutable distros and installs 
+│   the files inside '/home/.config/xkb/' or '/usr/share/X11/xkb/' respectively.
+halmak-nix/
+├── contains a configuration file that can be imported to your configuration.nix,
+│   which edits the xkb rules of your NixOS system.
+halmak-kanata/
+├── contains a kanata kbd file that has a one-layer remap of the layout for your kanata-enabled system.
+halmak-osx/
+└── contains a Halmak.bundle file for installation on OSX systems.
+```
 
 ## Additional Packages
 I have included OSX keyboard bundle files alongside the Linux files if you also want to install it on a Mac (though take into account that this version has `(` and `)` with `,` and `.` respectively, like traditionally.
@@ -27,7 +43,7 @@ I have included OSX keyboard bundle files alongside the Linux files if you also 
 
 4. Restart your computer to apply the changes. (not always necessary)
 
-5. After restarting, go to `System Settings -> Region & Language`. Click the `+` button, select `English (United States)`, scroll and click `Halmak`, then click the `Add` button.
+5. After restarting, open your system's keyboard settings, add a new input source, select 'Other', and then choose 'Halmak' from the list.
 
 It should now be available in the top right corner of your menu, a drop-down menu that allows you to click and select the keyboard layout you want (default would probably be "en" with a down arrow next to it).
 

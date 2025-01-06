@@ -30,7 +30,7 @@ I have included OSX keyboard bundle files alongside the Linux files if you also 
 
 ## Installation Instructions
 
-### Automated Installation (Tested on Fedora 40, Debian 12, Ubuntu 19.10):
+### Automated Installation (Tested on Fedora 41, Debian 12, NixOS 24.11, VanillaOS 2 Orchid, Bazzite):
 
 1. Download this project's files.
 

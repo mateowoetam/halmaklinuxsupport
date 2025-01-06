@@ -83,6 +83,6 @@ I. If you'd like to try to create a custom layout of your own, you just need to 
 
 To [kaievins](https://github.com/kaievns) for creating the [halmak](https://github.com/kaievns/halmak) keybard layout, and the OSX files.
 
-To [pguerin](https://github.com/pguerin3) for creating [halmak4windows]{https://github.com/pguerin3/halmak4windows}
+To [pguerin](https://github.com/pguerin3) for creating [halmak4windows](https://github.com/pguerin3/halmak4windows)
 
 To random redditors for giving me clues on how to make the script better.

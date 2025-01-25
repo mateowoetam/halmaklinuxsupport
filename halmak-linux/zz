@@ -1,5 +1,5 @@
-// Colemak symbols for xkb on X.Org Server 7.x
-// 2006-01-01 Shai Coleman, http://colemak.com/
+// Keyboard layouts for the United States of America. (Halmak)
+// 2016 Kai Evans, https://github.com/kaievns/halmak
 
 partial alphanumeric_keys
 xkb_symbols "basic" {

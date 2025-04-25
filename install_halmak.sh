@@ -1,9 +1,22 @@
 #!/bin/bash
 
-# Directories
+# Directories to create
 CONFIG_SYMBOLS_DIR="/home/$USER/.config/xkb/symbols"
 CONFIG_RULES_DIR="/home/$USER/.config/xkb/rules"
 HALMAK_DIR="$(dirname "$0")/halmak-linux"
+
+# Create the necessary directories
+mkdir -p "$CONFIG_SYMBOLS_DIR" "$CONFIG_RULES_DIR"
+
+# Check if the directories were created successfully
+if [[ -d "$CONFIG_SYMBOLS_DIR" && -d "$CONFIG_RULES_DIR" ]]; then
+    echo "Directories created successfully:"
+    echo "$CONFIG_SYMBOLS_DIR"
+    echo "$CONFIG_RULES_DIR"
+else
+    echo "Failed to create directories."
+    exit 1
+fi
 
 # Function to copy files and handle errors
 copy_files() {

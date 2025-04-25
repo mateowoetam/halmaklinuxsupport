@@ -38,8 +38,9 @@ I have included OSX keyboard bundle files alongside the Linux files if you also 
 
 3. Run the installation script with root privileges:
    ```bash
-   sudo ./install_halmak.sh
+   sh ./install_halmak.sh
    ```
+   no need to run in `sudo` as this will add the files to the root user instead.
 
 4. Restart your computer to apply the changes. (not always necessary)
 

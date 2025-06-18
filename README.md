@@ -1,7 +1,7 @@
 # Halmak Keyboard Layout for Linux
 
 ## Key Mapping Note
-Given a personal preference, this version of the Halmak keyboard layout uses `<` and `>` with `,` and `.` respectively, instead of the traditional mappings for `(` and `)` or other setups. Another note is that the CapsLock has been replaced by a secondary Backspace, given the original Halmak design philosophy and realizaiton that no one uses it. (I should probably work on adding either as an options in the script)
+Given a personal preference, this version of the Halmak keyboard layout uses `<` and `>` with `,` and `.` respectively, instead of the alternative mappings for `(` and `)` or other setups. Another note is that the CapsLock has been replaced by a secondary Backspace, given the original Halmak design philosophy and realizaiton that no one uses it. (I should probably work on adding either as an options in the script)
 
 ![keyboard-layout](https://github.com/user-attachments/assets/c3442835-49e3-4f10-b180-ca0feb915fe7)
 
@@ -30,7 +30,7 @@ I have included OSX keyboard bundle files alongside the Linux files if you also 
 
 ## Installation Instructions
 
-### Automated Installation (Tested on Fedora 41, Debian 12, NixOS 24.11, VanillaOS 2 Orchid, Bazzite):
+### Automated Installation (Tested on Fedora 40-42, Debian 11-13, NixOS 24.11-25.05, VanillaOS 2 Orchid, & Bazzite):
 
 1. Download this project's files.
 

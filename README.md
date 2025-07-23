@@ -30,7 +30,28 @@ I have included OSX keyboard bundle files alongside the Linux files if you also 
 
 ## Installation Instructions
 
-### Automated Installation (Tested and works on DEs: KDE, Hyprland, Gnome, LXQT, DDE; Distros: Fedora 40-42, Debian 11-13, NixOS 24.11-25.05, VanillaOS 2 Orchid, Bazzite & Deepin 25):
+### Tested on:
+
+### DEs: 
+- KDE Wayland: Working
+- KDE X11: Not Working
+- Gnome: Working
+- Hyprland: Working
+- LXQT: Working
+- DDE (Deepin): Working
+
+### Distros:
+- Fedora 40-42: Working
+- Debian 11-13: Working
+- NixOS 24.05-25.11: Working
+- VanillaOS 2 Orchid: Working
+- Bazzite: Working
+- Deepin 25: Working
+- Redhat 10: Working
+- SteamOS: Not Working (no wayland session)
+- OpenSUSE: Working (on Wayland)
+
+### Automated Installation:
 
 1. Download this project's files.
 

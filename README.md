@@ -48,7 +48,7 @@ I have included OSX keyboard bundle files alongside the Linux files if you also 
 - Bazzite: Working
 - Deepin 25: Working
 - Redhat 10: Working
-- SteamOS: Not Working (no wayland session)
+- SteamOS: Not Working (X11 session by defaul, if switched to Wayland Trackpads and the Virtual keyboard don't work)
 - OpenSUSE: Working (on Wayland)
 
 ### Automated Installation:

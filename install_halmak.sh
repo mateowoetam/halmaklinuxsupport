@@ -9,7 +9,7 @@ HALMAK_DIR="$(dirname "$0")/halmak-linux"
 mkdir -p "$CONFIG_SYMBOLS_DIR" "$CONFIG_RULES_DIR"
 
 # Check if the directories were created successfully
-if [[ -d "$CONFIG_SYMBOLS_DIR" && -d "$CONFIG_RULES_DIR" ]]; then
+if [ -d "$CONFIG_SYMBOLS_DIR" ] && [ -d "$CONFIG_RULES_DIR" ]; then
     echo "Directories created successfully:"
     echo "$CONFIG_SYMBOLS_DIR"
     echo "$CONFIG_RULES_DIR"

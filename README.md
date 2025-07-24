@@ -30,27 +30,34 @@ I have included OSX keyboard bundle files alongside the Linux files if you also 
 
 ## Installation Instructions
 
-### Tested on:
+### ✅ Tested Environments
 
-### DEs: 
-- KDE Wayland: Working
-- KDE X11: Not Working
-- Gnome: Working
-- Hyprland: Working
-- LXQT: Working
-- DDE (Deepin): Working
+#### Desktop Environments (DEs)
 
-### Distros:
-- Fedora 40-42: Working
-- Debian 11-13: Working
-- NixOS 24.05-25.11: Working
-- VanillaOS 2 Orchid: Working
-- Bazzite: Working
-- Deepin 25: Working
-- Redhat 10: Working
-- SteamOS: Not Working (X11 session by defaul, if switched to Wayland Trackpads and the Virtual keyboard don't work)
-- OpenSUSE: Working (on Wayland)
+| Desktop Environment | Status        | Notes                                   |
+| ------------------- | ------------- | --------------------------------------- |
+| **KDE (Wayland)**   | ✅ Working     | —                                       |
+| **KDE (X11)**       | ❌ Not Working | Use the `halmak-mutable` script instead |
+| **GNOME**           | ✅ Working     | —                                       |
+| **Hyprland**        | ✅ Working     | —                                       |
+| **LXQt**            | ✅ Working     | —                                       |
+| **DDE (Deepin)**    | ✅ Working     | —                                       |
 
+#### Linux Distributions
+
+| Linux Distribution     | Status               | Notes                                                                                                                                             |
+| ---------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Fedora 40–42**       | ✅ Working            | —                                                                                                                                                 |
+| **Debian 11–13**       | ✅ Working            | —                                                                                                                                                 |
+| **NixOS 24.05–25.11**  | ✅ Working            | —                                                                                                                                                 |
+| **VanillaOS 2 Orchid** | ✅ Working            | —                                                                                                                                                 |
+| **Bazzite**            | ✅ Working            | —                                                                                                                                                 |
+| **Deepin 25**          | ✅ Working            | —                                                                                                                                                 |
+| **Red Hat 10**         | ✅ Working            | —                                                                                                                                                 |
+| **SteamOS**            | ❌ Not Working        | Default script runs but doesn’t work due to X11. On Wayland it works, **but virtual keyboard and trackpad may stop working** (not script-related) |
+| **openSUSE**           | ⚠️ Partially Working | Only works after switching to Wayland; on X11, use `halmak-mutable`                                                                               |
+
+  
 ### Automated Installation:
 
 1. Download this project's files.

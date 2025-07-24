@@ -1,7 +1,7 @@
 #!/bin/bash
 SYMBOLS_DIR="/usr/share/X11/xkb/symbols"
 RULES_DIR="/usr/share/X11/xkb/rules"
-HALMAK_DIR="$(dirname "$0")/halmak-linux"
+HALMAK_DIR="$(dirname "$0")/../halmak-linux"
 IMUTABLE_SYMBOLS_DIR="/home/$USER/.config/xkb/symbols"
 IMUTABLE_RULES_DIR="/home/$USER/.config/xkb/rules"
 # Function to copy files and handle errors

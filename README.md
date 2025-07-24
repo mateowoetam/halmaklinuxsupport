@@ -38,15 +38,16 @@ I have included OSX keyboard bundle files alongside the Linux files if you also 
 | ------------------- | ------------- | --------------------------------------- |
 | **KDE (Wayland)**   | ✅ Working     | —                                       |
 | **KDE (X11)**       | ❌ Not Working | Use the `halmak-mutable` script instead |
-| **GNOME**           | ✅ Working     | —                                       |
+| **GNOME (Wayland)** | ✅ Working     | —                                       |
+| **GNOME (X11)**     | ❌ Not Working | Use the `halmak-mutable` script instead |
 | **Hyprland**        | ✅ Working     | —                                       |
 | **LXQt**            | ✅ Working     | —                                       |
 | **DDE (Deepin)**    | ✅ Working     | —                                       |
 
 #### Linux Distributions
 
-| Linux Distribution     | Status               | Notes                                                                                                                                             |
-| ---------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Linux Distribution     | Status               | Notes                                                                                                                                              |
+| ---------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Fedora 40–42**       | ✅ Working            | —                                                                                                                                                 |
 | **Debian 11–13**       | ✅ Working            | —                                                                                                                                                 |
 | **NixOS 24.05–25.11**  | ✅ Working            | —                                                                                                                                                 |
@@ -54,8 +55,9 @@ I have included OSX keyboard bundle files alongside the Linux files if you also 
 | **Bazzite**            | ✅ Working            | —                                                                                                                                                 |
 | **Deepin 25**          | ✅ Working            | —                                                                                                                                                 |
 | **Red Hat 10**         | ✅ Working            | —                                                                                                                                                 |
+| **Ubuntu 25.04**       | ✅ Working            | —                                                                                                                                                 |
 | **SteamOS**            | ❌ Not Working        | Default script runs but doesn’t work due to X11. On Wayland it works, **but virtual keyboard and trackpad may stop working** (not script-related) |
-| **openSUSE**           | ⚠️ Partially Working | Only works after switching to Wayland; on X11, use `halmak-mutable`                                                                               |
+| **openSUSE**           | ⚠️ Partially Working  | Only works after switching to Wayland; on X11, use `halmak-mutable`                                                                               |
 
   
 ### Automated Installation:

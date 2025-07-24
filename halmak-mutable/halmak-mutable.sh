@@ -3,7 +3,7 @@
 # Define the paths
 SYMBOLS_DIR="/usr/share/X11/xkb/symbols"
 RULES_DIR="/usr/share/X11/xkb/rules"
-HALMAK_DIR="$(dirname "$0")/halmak-linux"
+HALMAK_DIR="$(dirname "$0")/../halmak-linux"
 
 # Check for root privileges
 if [[ $EUID -ne 0 ]]; then
